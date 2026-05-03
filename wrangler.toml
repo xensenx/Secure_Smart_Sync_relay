@@ -1,0 +1,24 @@
+name = "sss-relay"
+main = "src/index.ts"
+compatibility_date = "2024-05-29"
+compatibility_flags = ["nodejs_compat"]
+
+[[kv_namespaces]]
+binding = "PAIRING_KV"
+
+#npm install
+#npx wrangler kv namespace create PAIRING_KV (--run_that) 
+
+id = "Paste_the_ID_Here"
+
+#npx wrangler kv namespace create PAIRING_KV --preview (--run_that)
+
+preview_id = "Paste_the_Preview_ID_Here"
+
+[vars]
+# Maximum blob size accepted (bytes). 4 KB is generous for a credential bundle.
+MAX_BLOB_BYTES = "4096"
+# How long a pairing slot lives in KV (seconds). 10 minutes.
+TTL_SECONDS = "600"
+# How many store requests are allowed per IP per minute.
+RATE_LIMIT_STORE_RPM = "5"
